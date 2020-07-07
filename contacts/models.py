@@ -21,7 +21,7 @@ class Contact(models.Model):
     zip_code = USZipCodeField(null=True, blank=True)
     birthday = models.DateField(null=True, blank=True)
 
-# class Note(models.Model):
-#     contacts = models.ManyToManyField(Contact)
-#     description = models.CharField(max_length=255, null=True, blank=True)
-#     created_at = models.DateTimeField(auto_now_add=True)
+class Note(models.Model):
+    contact = models.ForeignKey(Contact, on_delete=models.CASCADE)
+    text = models.CharField(max_length=255, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)

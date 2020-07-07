@@ -8,6 +8,10 @@ def list_contacts(request):
     contacts = Contact.objects.all()
     return render(request, "contacts/list_contacts.html",
                   {"contacts": contacts})
+def list_notes(request):
+    notes = Note.objects.all()
+    return render(request, "notes/list_notes.html",
+                  {"notes":notes})
 
 
 def add_contact(request):
